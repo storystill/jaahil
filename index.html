@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday Deepika ❤️</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@300;400;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #0c0c1d, #1a1a2e, #16213e);
+            color: #fff;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        /* Floating Hearts Background */
+        .floating-hearts {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .heart-bg {
+            position: absolute;
+            color: rgba(255, 107, 156, 0.3);
+            font-size: 20px;
+            animation: floatHeart 15s linear infinite;
+        }
+
+        @keyframes floatHeart {
+            0% {
+                transform: translateY(100vh) translateX(0) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.7;
+            }
+            90% {
+                opacity: 0.4;
+            }
+            100% {
+                transform: translateY(-100px) translateX(100px) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            text-align: center;
+            padding: 50px 0;
+            position: relative;
+        }
+
+        .title {
+            font-family: 'Dancing Script', cursive;
+            font-size: 4.5rem;
+            margin-bottom: 20px;
+            color: #ff6b9c;
+            text-shadow: 0 0 15px rgba(255, 107, 156, 0.7);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        .subtitle {
+            font-size: 1.3rem;
+            margin-bottom: 30px;
+            color: #a9a9a9;
+        }
+
+        /* New: Opening Letter Animation (Out of Screen) */
+        .letter-container {
+            position: relative;
+            width: 300px;
+            height: 200px;
+            margin: 40px auto;
+            perspective: 1000px;
+        }
+
+        .envelope {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            cursor: pointer;
+        }
+
+        .envelope-front {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: #ff6b9c;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 2;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            transition: all 0.5s ease;
+        }
+
+        .envelope-front i {
+            font-size: 4rem;
+            color: white;
+            animation: heartbeat 1.5s infinite;
+        }
+
+        @keyframes heartbeat {
+            0% { transform: scale(1); }
+            25% { transform: scale(1.1); }
+            50% { transform: scale(1); }
+            75% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+
+        .letter-paper {
+            position: absolute;
+            width: 95%;
+            height: 95%;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 5px;
+            top: 0;
+            left: 2.5%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Dancing Script', cursive;
+            font-size: 2rem;
+            color: #1a1a2e;
+            transform-origin: top;
+            transform: scaleY(0);
+            transition: all 0.5s ease 0.3s;
+            z-index: 1;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .envelope:hover .envelope-front {
+            transform: translateY(-50%) rotateX(180deg);
+            opacity: 0;
+        }
+
+        .envelope:hover .letter-paper {
+            transform: scaleY(1);
+        }
+
+        /* Open When Letters */
+        .open-when {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            margin: 50px 0;
+        }
+
+        .letter {
+            width: 150px;
+            height: 200px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .letter:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 25px rgba(255, 107, 156, 0.4);
+            border-color: #ff6b9c;
+        }
+
+        .letter i {
+            font-size: 3rem;
+            color: #ff6b9c;
+            margin-bottom: 15px;
+        }
+
+        .letter-title {
+            font-size: 1.1rem;
+            text-align: center;
+        }
+
+        .letter-content {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(26, 26, 46, 0.95);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            padding: 20px;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+        }
+
+        .letter.active .letter-content {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .close-letter {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #ff6b9c;
+        }
+
+        /* Love Story Timeline */
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 0 20px;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 2px;
+            height: 100%;
+            background: linear-gradient(to bottom, transparent, #ff6b9c, transparent);
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 50px;
+            width: 100%;
+        }
+
+        .timeline-item:nth-child(odd) {
+            padding-right: 50%;
+            text-align: right;
+        }
+
+        .timeline-item:nth-child(even) {
+            padding-left: 50%;
+            text-align: left;
+        }
+
+        .timeline-content {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 20px;
+            border-radius: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: transform 0.3s ease;
+        }
+
+        .timeline-item:hover .timeline-content {
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(255, 107, 156, 0.3);
+        }
+
+        .timeline-date {
+            font-size: 0.9rem;
+            color: #ffd166;
+            margin-bottom: 10px;
+        }
+
+        .timeline-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            color: #4ecdc4;
+        }
+
+        .timeline-dot {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 20px;
+            height: 20px;
+            background: #ff6b9c;
+            border-radius: 50%;
+            box-shadow: 0 0 10px rgba(255, 107, 156, 0.7);
+        }
+
+        /* Distance Tracker with Plane Animation */
+        .distance-tracker {
+            text-align: center;
+            margin: 60px 0;
+        }
+
+        .distance-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+            color: #ffd166;
+        }
+
+        .map-container {
+            position: relative;
+            max-width: 800px;
+            height: 300px;
+            margin: 0 auto;
+            background: url('https://maps.googleapis.com/maps/api/staticmap?center=25°N,80°W&zoom=1&size=800x300&maptype=terrain&key=YOUR_API_KEY') no-repeat center;
+            background-size: cover;
+            border-radius: 15px;
+            overflow: hidden;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 40px;
+        }
+
+        .location {
+            text-align: center;
+            z-index: 2;
+            background: rgba(26, 26, 46, 0.8);
+            padding: 15px;
+            border-radius: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .location-icon {
+            font-size: 2.5rem;
+            color: #ff6b9c;
+            margin-bottom: 10px;
+        }
+
+        .location-name {
+            font-size: 1.3rem;
+            margin-bottom: 5px;
+        }
+
+        .plane-path {
+            position: absolute;
+            top: 50%;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(to right, transparent, #ff6b9c, transparent);
+        }
+
+        .plane {
+            position: absolute;
+            top: 50%;
+            left: 10%;
+            transform: translate(-50%, -50%);
+            color: #ff6b9c;
+            font-size: 2rem;
+            animation: flyPlane 8s linear infinite;
+        }
+
+        @keyframes flyPlane {
+            0% { left: 10%; transform: translateY(-50%) rotate(0deg); }
+            50% { left: 50%; transform: translateY(-60%) rotate(5deg); }
+            100% { left: 90%; transform: translateY(-50%) rotate(0deg); }
+        }
+
+        .distance-text {
+            position: absolute;
+            top: 60%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(26, 26, 46, 0.8);
+            padding: 10px 20px;
+            border-radius: 30px;
+            font-size: 1.2rem;
+            color: #ffd166;
+            z-index: 2;
+            border: 1px solid #ff6b9c;
+        }
+
+        .promise {
+            max-width: 700px;
+            margin: 30px auto 0;
+            font-size: 1.2rem;
+            font-style: italic;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        /* Video Message */
+        .video-message {
+            text-align: center;
+            margin: 60px 0;
+        }
+
+        .video-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+            color: #4ecdc4;
+        }
+
+        .video-placeholder {
+            width: 100%;
+            max-width: 600px;
+            height: 350px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px dashed #ff6b9c;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .video-placeholder:hover {
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .video-placeholder i {
+            font-size: 5rem;
+            color: #ff6b9c;
+        }
+
+        /* Final Message */
+        .final-message {
+            text-align: center;
+            margin: 80px 0;
+        }
+
+        .final-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            margin-bottom: 30px;
+            color: #ff6b9c;
+        }
+
+        .final-text {
+            max-width: 700px;
+            margin: 0 auto;
+            font-size: 1.2rem;
+            line-height: 1.8;
+        }
+
+        .closing-paragraph {
+            max-width: 700px;
+            margin: 30px auto 0;
+            font-size: 1.2rem;
+            font-style: italic;
+            color: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .signature {
+            font-family: 'Dancing Script', cursive;
+            font-size: 3rem;
+            margin-top: 40px;
+            color: #4ecdc4;
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px 0;
+            margin-top: 50px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        @media (max-width: 768px) {
+            .title {
+                font-size: 3rem;
+            }
+            .timeline::before {
+                left: 20px;
+            }
+            .timeline-item:nth-child(odd),
+            .timeline-item:nth-child(even) {
+                padding: 0 0 0 50px;
+                text-align: left;
+            }
+            .timeline-dot {
+                left: 10px;
+            }
+            .map-container {
+                flex-direction: column;
+                height: auto;
+                padding: 40px 20px;
+                gap: 40px;
+            }
+            .plane-path, .plane {
+                display: none;
+            }
+            .distance-text {
+                position: relative;
+                top: auto;
+                left: auto;
+                transform: none;
+                margin: 20px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="floating-hearts" id="floatingHearts"></div>
+    
+    <div class="container">
+        <header>
+            <h1 class="title">Happy Birthday Deepika</h1>
+            <p class="subtitle">My love for you grows stronger with every mile between us</p>
+            
+            <!-- New: Opening Letter Animation -->
+            <div class="letter-container">
+                <div class="envelope">
+                    <div class="envelope-front">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <div class="letter-paper">
+                        I Love You Bachha ❤️
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <section class="open-when">
+            <div class="letter">
+                <i class="fas fa-sad-tear"></i>
+                <p class="letter-title">Open When You're Sad</p>
+                <div class="letter-content">
+                    <span class="close-letter">&times;</span>
+                    <p>My love, remember that I'm always here for you. Even when we're apart, my heart is with you. You're stronger than you think, and I believe in you completely.</p>
+                </div>
+            </div>
+            
+            <div class="letter">
+                <i class="fas fa-moon"></i>
+                <p class="letter-title">Open At Night</p>
+                <div class="letter-content">
+                    <span class="close-letter">&times;</span>
+                    <p>As you sleep, know that I'm thinking of you. Dream sweet dreams, my love. One day soon, we'll fall asleep in each other's arms.</p>
+                </div>
+            </div>
+            
+            <div class="letter">
+                <i class="fas fa-heart-broken"></i>
+                <p class="letter-title">Open When You Miss Me</p>
+                <div class="letter-content">
+                    <span class="close-letter">&times;</span>
+                    <p>I miss you too, more than words can say. But remember, every second apart brings us closer to being together forever. Stay strong, my love.</p>
+                </div>
+            </div>
+            
+            <div class="letter">
+                <i class="fas fa-birthday-cake"></i>
+                <p class="letter-title">Open On Your Birthday</p>
+                <div class="letter-content">
+                    <span class="close-letter">&times;</span>
+                    <p>Happy Birthday, my beautiful Bachha! Today is all about you. I wish I could be there to celebrate with you, but know that my heart is with you every moment.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="timeline">
+            <h2 style="text-align: center; font-family: 'Playfair Display', serif; font-size: 2.5rem; margin-bottom: 50px; color: #ff6b9c;">Our Love Story</h2>
+            
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <div class="timeline-date">The Beginning</div>
+                    <h3 class="timeline-title">When We First Met</h3>
+                    <p>That moment when our eyes first connected, even across screens, I knew there was something special about you.</p>
+                </div>
+            </div>
+            
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <div class="timeline-date">First "I Love You"</div>
+                    <h3 class="timeline-title">The Day My Heart Found Home</h3>
+                    <p>When you first said those three words, my world changed forever. No distance could diminish what we share.</p>
+                </div>
+            </div>
+            
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <div class="timeline-date">Special Moments</div>
+                    <h3 class="timeline-title">Midnight Calls & Shared Dreams</h3>
+                    <p>Our late-night conversations, the songs we've shared, the future we're building - these are the treasures I hold closest.</p>
+                </div>
+            </div>
+            
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <div class="timeline-date">Future</div>
+                    <h3 class="timeline-title">When We Finally Meet</h3>
+                    <p>The day we erase this distance will be the happiest of my life. I promise to make every second worth the wait.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="distance-tracker">
+            <h2 class="distance-title">Bridging the Distance</h2>
+            <div class="map-container">
+                <div class="location">
+                    <div class="location-icon"><i class="fas fa-map-marker-alt"></i></div>
+                    <div class="location-name">Nagpur, India</div>
+                    <div>Where My Heart Resides</div>
+                </div>
+                
+                <div class="plane-path"></div>
+                <div class="plane"><i class="fas fa-paper-plane"></i></div>
+                <div class="distance-text">12,300 km Apart</div>
+                
+                <div class="location">
+                    <div class="location-icon"><i class="fas fa-map-marker-alt"></i></div>
+                    <div class="location-name">Scarborough, Canada</div>
+                    <div>Where My Heart Belongs</div>
+                </div>
+            </div>
+            <p class="promise">This distance is temporary. One day, there will be no space between us at all.</p>
+        </section>
+
+        <section class="video-message">
+  
